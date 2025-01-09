@@ -45,7 +45,7 @@ Place the dataset file (`spotify_millsongdata.csv`) in the project directory.
 
 ### Step 1: Clone the Repository  
 ```bash  
-git clone https://github.com/your-username/spotify-recommender.git  
+git clone https://github.com/NikhilKumarSingh4002/spotify-recommender.git  
 cd spotify-recommender  
 ```  
 
