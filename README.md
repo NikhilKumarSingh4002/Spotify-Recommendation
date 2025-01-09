@@ -2,7 +2,7 @@
 # Spotify Song Recommender System  
 
 ## Overview  
-This project is a song recommender system that uses Natural Language Processing (NLP) techniques and cosine similarity to recommend songs based on lyrics. It processes the Spotify Million Song Dataset, cleans and preprocesses the text, and applies TF-IDF vectorization to identify similar songs. The recommendation functionality is exposed through a Streamlit application for easy use.
+This project is a song recommender system that uses Natural Language Processing (NLP) techniques and cosine similarity to recommend songs based on lyrics. It processes the Spotify Million Song Dataset, cleans and preprocesses the text, and applies TF-IDF vectorization to identify similar songs. The recommendation functionality is exposed through a Streamlit application for easy use. It has a sidebar with Gemini Chatbot integration and a preview of song playing through Spotify Web Playback SDK.
 
 ---
 
@@ -11,6 +11,9 @@ This project is a song recommender system that uses Natural Language Processing 
 - TF-IDF vectorization for feature extraction.  
 - Cosine similarity-based song recommendations.  
 - Interactive user interface via Streamlit for easy song recommendation.
+- Gemini API chatbot to resolve user queries
+- Spotify WebPlayback SDK to play songs
+- Retrieves covers from Spotify
 
 ---
 
