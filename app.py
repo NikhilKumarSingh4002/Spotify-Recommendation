@@ -2,14 +2,12 @@ import pickle
 import streamlit as st
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-import requests 
-from dotenv import load_dotenv
-import os
+import requests
 
-load_dotenv()
-
-CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
-CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET")
+# Load secrets
+CLIENT_ID = st.secrets["SPOTIFY_CLIENT_ID"]
+CLIENT_SECRET = st.secrets["SPOTIFY_CLIENT_SECRET"]
+YOUR_GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
 
 # Initialize the Spotify client
 client_credentials_manager = SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
@@ -50,10 +48,7 @@ def recommend(song):
             'album_cover_url': get_song_album_cover_url(recommended_song['song'], recommended_song['artist']),
             'embed_url': get_embed_url(recommended_song['song'], recommended_song['artist'])
         })
-
     return recommended_music
-
-YOUR_GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 def get_chatbot_response(query):
     api_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={YOUR_GEMINI_API_KEY}"
@@ -71,7 +66,7 @@ def get_chatbot_response(query):
     }
     try:
         response = requests.post(api_url, headers=headers, json=data)
-        response.raise_for_status()  # Raise an exception for HTTP errors
+        response.raise_for_status()
         response_data = response.json()
         candidates = response_data.get("candidates", [])
         if candidates:
